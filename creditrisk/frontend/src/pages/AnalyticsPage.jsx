@@ -17,7 +17,7 @@ function CustomTooltip({ active, payload, label }) {
 }
 
 export function AnalyticsPage() {
-  const [stats, setStats]   = useState(null);
+  const [, setStats] = useState(null);
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -34,7 +34,6 @@ export function AnalyticsPage() {
     </div>
   );
 
-  // Group by date
   const byDate = history.reduce((acc, r) => {
     const d = r.timestamp ? new Date(r.timestamp).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }) : 'Unknown';
     if (!acc[d]) acc[d] = { date: d, approved: 0, rejected: 0 };
@@ -43,13 +42,11 @@ export function AnalyticsPage() {
   }, {});
   const timelineData = Object.values(byDate).slice(-14);
 
-  // Risk score distribution buckets
   const riskBuckets = [0,10,20,30,40,50,60,70,80,90].map(bucket => ({
     range: `${bucket}-${bucket+10}`,
     count: history.filter(r => r.risk_score >= bucket && r.risk_score < bucket + 10).length,
   }));
 
-  // Credit score vs approval
   const creditBuckets = ['300-500','500-600','600-650','650-700','700-750','750-800','800+'];
   const creditData = creditBuckets.map(b => {
     const [lo, hi] = b.split('-').map(Number);
@@ -138,7 +135,7 @@ export function AnalyticsPage() {
 }
 
 export function ModelInfoPage() {
-  const [info, setInfo]     = useState(null);
+  const [info, setInfo] = useState(null);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
@@ -172,7 +169,6 @@ export function ModelInfoPage() {
         <p className="page-subtitle">Trained ML model performance and feature analysis</p>
       </div>
 
-      {/* Best model banner */}
       <div style={{ background: 'linear-gradient(135deg, rgba(59,130,246,0.12), rgba(6,182,212,0.06))', border: '1px solid rgba(59,130,246,0.25)', borderRadius: 16, padding: '24px 28px', marginBottom: 24, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <div>
           <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 6 }}>Active Model</div>
@@ -194,7 +190,6 @@ export function ModelInfoPage() {
       </div>
 
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 20 }}>
-        {/* Model comparison */}
         <div className="card">
           <div className="card-header"><span className="card-title">◈ Model Comparison</span></div>
           <div className="card-body" style={{ height: 260 }}>
@@ -209,7 +204,6 @@ export function ModelInfoPage() {
           </div>
         </div>
 
-        {/* Feature importance */}
         <div className="card">
           <div className="card-header"><span className="card-title">◎ Feature Importance (RF)</span></div>
           <div className="card-body" style={{ height: 260 }}>
@@ -233,7 +227,6 @@ export function ModelInfoPage() {
         </div>
       </div>
 
-      {/* Detailed model table */}
       <div className="card" style={{ marginTop: 20 }}>
         <div className="card-header"><span className="card-title">◷ Full Benchmark Results</span></div>
         <table className="data-table">

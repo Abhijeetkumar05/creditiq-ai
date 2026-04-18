@@ -75,7 +75,6 @@ function ResultPanel({ result }) {
         <button className="btn btn-secondary btn-sm" onClick={downloadPDF}>⬇ PDF Report</button>
       </div>
 
-      {/* Risk meter */}
       <div style={{ marginBottom: 24 }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
           <span style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>Risk Score</span>
@@ -91,7 +90,6 @@ function ResultPanel({ result }) {
         </div>
       </div>
 
-      {/* Probabilities */}
       <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16, marginBottom: 24 }}>
         {[
           { label: 'Approval Probability', value: result.prob_approved, color: '#22c55e' },
@@ -104,7 +102,6 @@ function ResultPanel({ result }) {
         ))}
       </div>
 
-      {/* Key factors */}
       {result.key_factors?.length > 0 && (
         <div>
           <div style={{ fontSize: 12, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 12 }}>Key Risk Factors</div>
@@ -176,7 +173,7 @@ export default function PredictPage() {
         </div>
         <div className="card-body">
           <form onSubmit={handleSubmit}>
-            <div style={{ marginBottom: 8, fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16 }}>
+            <div style={{ fontSize: 11, fontFamily: 'var(--font-mono)', color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1.5, marginBottom: 16 }}>
               Financial Profile
             </div>
             <div className="form-grid" style={{ marginBottom: 24 }}>
