@@ -1,0 +1,67 @@
+{
+  "best_model": "Logistic Regression",
+  "accuracy": 0.959,
+  "f1_score": 0.9782,
+  "auc_score": 0.9737,
+  "cv_auc": 0.9663,
+  "numeric_features": [
+    "age",
+    "annual_income",
+    "loan_amount",
+    "loan_term",
+    "credit_score",
+    "employment_years",
+    "num_credit_lines",
+    "debt_to_income_ratio",
+    "num_derogatory_marks"
+  ],
+  "categorical_features": [
+    "employment_status",
+    "education_level",
+    "home_ownership",
+    "loan_purpose"
+  ],
+  "feature_importance": {
+    "employment_status_Unemployed": 0.3868,
+    "credit_score": 0.1611,
+    "debt_to_income_ratio": 0.0558,
+    "employment_status_Employed": 0.0544,
+    "annual_income": 0.0458,
+    "employment_years": 0.044,
+    "employment_status_Part-Time": 0.0361,
+    "loan_amount": 0.0338,
+    "employment_status_Self-Employed": 0.0335,
+    "num_credit_lines": 0.0292,
+    "num_derogatory_marks": 0.0287,
+    "age": 0.0282,
+    "loan_term": 0.0133,
+    "education_level_Bachelor": 0.0056,
+    "education_level_Associate": 0.0055
+  },
+  "model_comparison": {
+    "Logistic Regression": {
+      "accuracy": 0.959,
+      "f1": 0.9782,
+      "auc": 0.9737,
+      "cv_auc": 0.9663
+    },
+    "Random Forest": {
+      "accuracy": 0.959,
+      "f1": 0.9782,
+      "auc": 0.9668,
+      "cv_auc": 0.9575
+    },
+    "Gradient Boosting": {
+      "accuracy": 0.959,
+      "f1": 0.9781,
+      "auc": 0.9715,
+      "cv_auc": 0.9611
+    },
+    "XGBoost": {
+      "accuracy": 0.96,
+      "f1": 0.9786,
+      "auc": 0.9711,
+      "cv_auc": 0.9631
+    }
+  }
+}
