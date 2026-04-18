@@ -1,6 +1,3 @@
-
-Copy
-
 """
 CreditIQ — AI-Based Credit Risk Prediction System
 Flask Application Entry Point
