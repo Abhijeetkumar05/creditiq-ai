@@ -7,7 +7,7 @@ import {
 
 import { predictAPI } from '../services/api';
 import { useAuth } from '../hooks/useAuth';
-import '../styles/dashboard.css'; // 
+
 
 const COLORS = {
   approved: '#22c55e',
